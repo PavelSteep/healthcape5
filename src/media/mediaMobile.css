@@ -1,0 +1,30 @@
+/* mobile */
+@media (max-width:1110px) {
+  .section_mobile {
+    min-width:100% !important;
+    height:auto !important;
+  }
+}
+
+@media (max-width:991px) {
+  .section_mobile {
+    padding-top:0px !important;
+  }
+  .mobile_content {
+    margin-top:0px !important;
+    padding-left:100px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section_mobile img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 568px) {
+  .mobile_content h2 {
+    white-space: normal !important;
+  }
+}

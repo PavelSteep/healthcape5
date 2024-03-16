@@ -1,0 +1,34 @@
+@media (max-width:1110px) {
+  .section_wrapper {
+    min-width:100% !important;
+    height:auto !important;
+  }
+}
+
+
+.swiper-container {
+  margin-top: 30px !important;
+}
+
+.user_photo {
+  max-width: 100% !important; 
+  height: auto !important;
+}
+
+@media (max-width: 767px) {
+  .swiper-container {
+    padding: 0 15px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-container {
+    padding: 0 30px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .swiper-container {
+    padding: 0 60px !important;
+  }
+}

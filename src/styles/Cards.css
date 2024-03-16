@@ -1,0 +1,75 @@
+.card {
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cards_image {
+  height: 310px;
+  overflow: hidden;
+  padding-bottom:10px;
+  background: var(--doctors-images-background);
+  background-size: 200% auto;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.card_image {
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+  object-position: center top !important;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card_content {
+  margin-top: -30px;
+  background: var(--doctors-images-background);
+  background-size: 200% auto;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.card_title {
+  font-family: var(--roboto);
+  font-size: 18px;
+  font-weight: 500;
+  color: #3D3D3F;
+  line-height:1.66;
+  text-transform: capitalize;
+}
+
+.card_text {
+  font-family: var(--roboto);
+  font-size: 14px !important;
+  font-weight: 400;
+  color: #99999;
+  line-height:1.6;
+  letter-spacing:0,5px;
+  margin-top: -10px !important;
+}
+
+.add_to_cart {
+  margin-top: -40px !important;
+  margin:0 auto;
+}
+
+.add_to_cart img {
+  width: 31px;
+  height: 31px;
+}
+
+.add_to_cart img + img {
+  margin-left:12px;
+}

@@ -1,0 +1,132 @@
+.section_wrapper {
+  width:100%;
+  min-height:100vh;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background:var(--service-background);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  /* transition: background-color 0.3s ease; */
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.section_wrapper h2 {
+  font-family: var(--roboto);
+  font-size: 42px;
+  font-weight: 500;
+  color: #3D3D3F;
+  line-height:auto;
+  /* white-space: nowrap; */
+}
+
+.section_wrapper p {
+  font-family: var(--roboto);
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(61, 61, 63, 0.7);
+  line-height:1.66;
+  margin-top:20px;
+  margin-bottom:60px;
+  /* white-space: nowrap; */
+}
+
+/* slider */
+.slide {
+  margin-top:30px;
+}
+
+.slide_content_sevice {
+  max-width: 349px;
+  max-height: 316px;
+  border-radius: 10px;
+  padding:50px 35px 15px;
+  background: linear-gradient(135deg, #E8F3F7, #E6F2F8, #F1F6F7, #F2F6F7, #F0F3FB, #F4F8F7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  object-fit: content;
+  flex-shrink: 0;
+}
+
+.slide_content_sevice:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slide_content_sevice h5 {
+  font-family: var(--roboto);
+  font-size: 18px;
+  font-weight: 500;
+  color: #3D3D3F;
+  line-height:1.66;
+}
+
+.slide_content_sevice p {
+  font-family: var(--roboto);
+  font-size: 14px;
+  font-weight: 400;
+  color: #999999;
+  line-height:1.6;
+}
+
+/* pagination */
+.swiper-pagination {
+  position: unset;
+  margin-top:70px;
+  margin-left:-20px;
+}
+
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+}
+
+.swiper-pagination-bullet::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 530px;
+  width: 60px;
+  height: 15px;
+  border-radius:20px;
+  background-color: #40A3F8;
+  transform: translateY(-50%);
+}
+
+/* .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #40A3F8;
+  opacity: 0.5;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity 0.2s ease;
+} */
+
+/* .swiper-pagination-bullet-active {
+  opacity: 1;
+} */
+
+.progressbar {
+  position:absolute;
+  width: 349px;
+  max-width: 349px;
+  height: 18px;
+  bottom:0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  background-color: #40A3F8;
+  margin: auto;
+}

@@ -1,0 +1,101 @@
+
+/* Navbar */
+nav.navbar {
+  position:absolute;
+  width:100%;
+  background-image:var(--navigator);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  /* transition: background-color 0.3s ease; */
+  z-index: 1111;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.nav.navbar.collapsed {
+  transition: background-color 0.3s ease;
+}
+
+/* nav.navbar.sticky{
+  position:fixed;
+  left:0;
+  top:0;
+  background-color:var(--light-white);
+} */
+
+nav .navbar-brand a h1.logo {
+  font-family: Rubik, "sans-serif";
+  font-size: 2rem;
+  line-height: 1.5;
+  color: var(--azure);
+}
+
+nav .nav-link{
+  display:inline-flex;
+  align-items:center;
+  color:var(--graphite);
+  padding:0 18px;
+  font-size:1rem;
+  font-weight:500;
+  line-height:1.5;
+  font-family:var(--poppins);
+}
+
+nav .nav-link:hover{
+  color:var(--azure);
+}
+
+/* nav .nav-link Button .getStarted:hover {
+  background-color: transparent !important;
+} */
+
+/* .button {
+  background-color: #40A3F8;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+} */
+@keyframes myAnimation {
+  from {
+    background-color: #40A3F8;
+    color: #FFFFFF;
+  }
+  to {
+    background-color: #2980B9;
+    color: #DEECF5;
+  }
+}
+
+/* Button:hover { */
+  /* background-color: #5B4AF1 !important; */
+  /* animation: myAnimation 2s ease-in-out infinite; */
+/* } */
+
+/* nav .navbar-collapse{
+  animation:sticky .25s;
+}
+
+@keyframes sticky{
+  0%{
+    opacity:0;
+    transform:translateY(-100%);
+  }
+
+  100%{
+    opacity:1;
+    transform:none;
+  } */
+  
+/* } */
+
+

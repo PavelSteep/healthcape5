@@ -1,0 +1,62 @@
+.section_doctors {
+  position:relative;
+  width:100%;
+  min-width:100vh;
+  padding-top:60px;
+  padding-bottom:60px;
+  background: var(--doctors-second-background);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.line {
+  position: absolute;
+  width: 81px;
+  height: 4px;
+  background-color: #93DBFE;
+  border-radius:10px;
+  top: 15%;
+  transform: translateY(-50%);
+  left: calc(50% - 41px);
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: #93DBFE;
+  border-radius: 50%;
+  margin-left: 463px;
+  margin-top: 10px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.section_doctors h2 {
+  font-family: var(--roboto);
+  font-size: 42px;
+  font-weight: 500;
+  color: #3D3D3F;
+  line-height:auto;
+  text-transform: capitalize;
+}
+
+.section_doctors p {
+  font-family: var(--roboto);
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(61, 61, 63, 0.7);
+  line-height:1.66;
+  letter-spacing:0,5px;
+  margin-top:30px;
+  margin-bottom:50px;
+}

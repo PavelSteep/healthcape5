@@ -1,0 +1,13 @@
+@media (max-width:1110px) {
+  .section_wrapper_comments {
+    min-width:100% !important;
+    height:auto !important;
+  }
+}
+
+@media (max-width:767px) {
+  .comments_content h2 {
+    font-size:36px !important;
+    white-space: normal !important;
+  }
+}

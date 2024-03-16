@@ -1,0 +1,61 @@
+/* doctors */
+@media (max-width:1399px) {
+  .section_doctors .circle {
+    margin-left: 400px !important;
+  }
+}
+
+@media (max-width:1199px) {
+  .section_doctors .line {
+    margin-top: -72px !important;
+  }
+  .section_doctors .circle {
+    margin-left: 340px !important;
+  }
+}
+
+@media (max-width:991px) {
+  .section_doctors .line {
+    margin-top: -209px !important;
+  }
+  .section_doctors .circle {
+    margin-left: 370px !important;
+  }
+}
+
+@media (max-width:767px) {
+  .section_doctors .line {
+    margin-top: -209px !important;
+  }
+  .section_doctors .circle {
+    margin-left: 290px !important;
+  }
+}
+
+@media (max-width:650px) {
+  .section_doctors h2 {
+    font-size:35px !important;
+    white-space: normal !important;
+  }
+  .section_doctors .line {
+    margin-top: -176px !important;
+  }
+}
+
+@media (max-width:575px) {
+  .section_doctors .line {
+    margin-top: -213px !important;
+  }
+  .section_doctors .circle {
+    margin-left: 300px !important;
+  }
+}
+
+@media (max-width:557px) {
+  .section_doctors .line {
+    margin-top: -176px !important;
+  }
+  /* .section_doctors .circle {
+    margin-left: 300px !important;
+  } */
+}

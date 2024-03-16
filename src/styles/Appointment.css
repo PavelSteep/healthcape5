@@ -1,0 +1,44 @@
+.section_wrapper_appointment {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--appointment-background);
+  width:100%;
+  min-height:100vh;
+  padding: 20px 40px 20px;
+  z-index:1;
+}
+
+.appointment_content {
+  position: relative;
+  width: 100%;
+  max-width: 1170px;
+  max-height: 341px;
+  background: url('../assets/appointment/rectangle.png') center no-repeat !important;
+  background-size:cover;
+  border-radius:15px;
+  cursor:pointer;
+  padding:70px 100px 80px;
+}
+
+.appointment_content h2 {
+  font-family: var(--roboto);
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--white);   
+  line-height:auto;
+  letter-spacing:0,5px;
+  text-transform: initial;
+  white-space: normal;
+}
+
+.appointment_img {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.appointment_img img {
+  max-width: 100%;
+  height: auto;
+}

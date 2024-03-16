@@ -1,0 +1,177 @@
+.about_section {
+  width:100%;
+  min-height:80vh;
+  padding-top: 120px;
+  overflow: hidden;
+  background: var(--about-background);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  /* transition: background-color 0.3s ease; */
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.about_text {
+  width:100%;
+  margin-top: 170px;
+}
+
+.about_text h1 {
+  font-family: var(--roboto);
+  font-size: 48px;
+  font-weight: 600;
+  color: #3E3E3E;
+  line-height:1.46;
+  white-space: nowrap;
+}
+
+.about_text h2 {
+  font-family: var(--roboto);
+  font-size: 48px;
+  font-weight: 600;
+  color: #40A3F8;
+  line-height:1.46;
+  margin:10px 0 25px;
+}
+
+.about_text p {
+  font-family: var(--roboto);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(117, 117, 117, 0.46);
+  line-height:2.14;
+  margin-bottom:60px;
+}
+
+.wrapper_btn {
+  background-color:var(--white);
+  position:relative;
+  padding:15px;
+  border-radius:8px;
+}
+
+.wrapper_btn .first {
+  background-color:rgba(245, 246, 250, 0.52);
+  color:rgba(0, 0, 0, 0.3);
+  font-family:var(--poppins);
+  font-size:14px;
+  line-height:1.7;
+  font-weight:400;
+  padding:20px 50px 20px 30px;
+  margin-right:20px;
+  border:none;
+}
+
+.dropdown_map, #bg-nested-dropdown {
+  background-color:rgba(245, 246, 250, 0.52);
+  color:#3D3D3F;
+  border:none;
+  font-family:var(--poppins);
+  font-size:14px;
+  line-height:1.7;
+  font-weight:400;
+  padding:10px 15px 10px 25px;
+  margin-right:10px;
+}
+
+.map {
+  position:absolute;
+  top:25px;
+  left:250px;
+  width:12.5px;
+  height:14.90px;
+  color:#3D3D3F;
+}
+
+.search_info {
+  background-color:#40A3F8;
+  color:var(--white);
+  padding:10px 15px 10px;
+  font-size:22px;
+}
+
+/* col-2-bottom-img */
+
+.about_block {
+  width:100%;
+  height:auto;
+}
+
+.ellipse_all {
+  width:100%;
+  height:auto;
+  position:relative;
+}
+
+.ellipse_all img {
+  position: absolute;
+  width:100%;
+  height:auto;
+  top: 160px;
+  left: 0;
+  object-fit: contain;
+}
+
+.womanDoctor {
+  position:absolute;
+  z-index:10;
+}
+
+.ellipse {
+  position:absolute;
+  left:7.5% !important;
+  object-fit:cover !important;
+  overflow: hidden!important;
+  z-index:2;
+}
+
+.about_block .phone {
+  max-width: 95px;
+  max-height: 90px;
+  top: 205px;
+  left: 100px;
+  z-index:5;
+}
+
+.about_block .video {
+  max-width: 95px;
+  max-height: 90px;
+  top: 200px;
+  left: 530px;
+  z-index:5;
+}
+
+.about_block .chat {
+  max-width: 95px;
+  max-height: 90px;
+  top: 360px;
+  left: 12px;
+  z-index:5;
+}
+
+.about_block .patientReview {
+  max-width: 212px;
+  max-height: 80px;
+  top: 515px;
+  left: 110px;
+  z-index:15;
+}
+
+.about_block .patients {
+  max-width: 162px;
+  max-height: 112px;
+  top: 400px;
+  left: 450px;
+  z-index:15;
+}
+

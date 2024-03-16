@@ -1,0 +1,48 @@
+/* appointment */
+@media (max-width:1850px) {
+  .section_wrapper_appointment {
+    padding-top:180px !important;
+  }
+}
+
+@media (max-width:1110px) {
+  .appointment_img {
+    max-width: 80% !important;
+    right: -140px !important;
+  }
+  .appointment_img img {
+    max-width: 80% !important;
+    height: auto !important;
+    top:0px !important;
+    right: 80px !important;
+  }
+}
+
+@media (max-width:900px) {
+  .appointment_img {
+    max-width: 60% !important;
+    right: -140px !important;
+  }
+  .appointment_img img {
+    max-width: 80% !important;
+    height: auto !important;
+    top:0px !important;
+    right: 80px !important;
+  }
+}
+
+@media (max-width:700px) {
+  .appointment_content {
+    padding-left:0px !important;
+  }
+  .appointment_img {
+    max-width: 60% !important;
+    right: -80px !important;
+  }
+  .appointment_img img {
+    max-width: 80% !important;
+    height: auto !important;
+    top:0px !important;
+    right: 80px !important;
+  }
+}
