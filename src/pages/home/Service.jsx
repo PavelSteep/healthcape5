@@ -1,43 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade, EffectCube, EffectCoverflow, EffectFlip } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import SwiperCore from 'swiper';
-
-// import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import '../../styles/Service.css';
 import Diagnostics from "../../assets/service/diagnostics.png";
 import Organs from "../../assets/service/organs.png";
 import Medicine from "../../assets/service/medicine.png";
 
-// SwiperCore.use([Pagination]);
-
-// const Service = () => {
-//   const [slidesPerView, setSlidesPerView] = useState(3);
-
-//   useEffect(() => {
-//     const handleResize = () => {
-//       const screenWidth = window.innerWidth;
-//       if (screenWidth >= 992) {
-//         setSlidesPerView(3); // Для больших экранов отображаем 3 слайда
-//       } else if (screenWidth >= 768) {
-//         setSlidesPerView(2); // Для средних экранов отображаем 2 слайда
-//       } else {
-//         setSlidesPerView(1); // Для маленьких экранов отображаем 1 слайд
-//       }
-//     };
-
-//   handleResize(); // Вызываем функцию сразу при загрузке компонента
-
-//   window.addEventListener("resize", handleResize); // Добавляем слушатель события изменения размеров окна
-
-//   return () => {
-//     window.removeEventListener("resize", handleResize); // Удаляем слушатель при размонтировании компонента
-//   };
-// }, []);
 
 const serviceData = [
   {
@@ -47,7 +14,8 @@ const serviceData = [
     width:'108px',
     height:'72px',
     title:'Cardiology',
-    text:'Our cardiologists are skilled at  the diagnosing and treating diseases of the cardiovascular system.'
+    text:'Our cardiologists are skilled at  the diagnosing and treating diseases of the cardiovascular system.',
+    showProgressBar: false
   },
   {
     id:2,
@@ -56,7 +24,8 @@ const serviceData = [
     width:'77px',
     height:'77px',
     title:'Pulmonology',
-    text:'Our Pulmonologist are skilled at  diagnosing treating diseases of the Pulmonology system.'
+    text:'Our Pulmonologist are skilled at  diagnosing treating diseases of the Pulmonology system.',
+    showProgressBar: true
   },
   {
     id:3,
@@ -65,7 +34,8 @@ const serviceData = [
     width:'74px',
     height:'78px',
     title:'Medicine',
-    text:'Our medicine doctor are skilled at  diagnosing treating diseases of the  latest medicine system.'
+    text:'Our medicine doctor are skilled at  diagnosing treating diseases of the  latest medicine system.',
+    showProgressBar: false
   },
   {
     id:4,
@@ -74,7 +44,8 @@ const serviceData = [
     width:'108px',
     height:'72px',
     title:'Cardiology',
-    text:'Our cardiologists are skilled at  the diagnosing and treating diseases of the cardiovascular system.'
+    text:'Our cardiologists are skilled at  the diagnosing and treating diseases of the cardiovascular system.',
+    showProgressBar: false
   },
   {
     id:5,
@@ -83,7 +54,8 @@ const serviceData = [
     width:'77px',
     height:'77px',
     title:'Pulmonology',
-    text:'Our Pulmonologist are skilled at  diagnosing treating diseases of the Pulmonology system.'
+    text:'Our Pulmonologist are skilled at  diagnosing treating diseases of the Pulmonology system.',
+    showProgressBar: true
   },
   {
     id:6,
@@ -92,88 +64,100 @@ const serviceData = [
     width:'74px',
     height:'78px',
     title:'Medicine',
-    text:'Our medicine doctor are skilled at  diagnosing treating diseases of the  latest medicine system.'
+    text:'Our medicine doctor are skilled at  diagnosing treating diseases of the  latest medicine system.',
+    showProgressBar: false
   },
 ];
 
 
 function Service() {
-  // useEffect(() => {
-    // После того как компонент загружен, найдем элемент пагинации и удалим у него стиль position
-  //   const pagination = document.querySelector('.swiper-pagination');
-  //   if (pagination) {
-  //     pagination.style.position = 'unset';
-  //   }
-  // }, []);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [direction, setDirection] = useState(null); // Состояние для отслеживания направления перемещения карусели
+
+
+   // Обработчик изменения размера окна
+   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Количество изображений, которые будут отображаться на экране в зависимости от ширины окна
+  const visibleImages = Math.min(serviceData.length, windowWidth >= 992 ? 3 : (windowWidth >= 768 ? 2 : 1));
+
+  // Переход к следующему слайду
+const nextSlide = () => {
+  setDirection('next'); // Устанавливаем направление перемещения
+  setCurrentIndex((prevIndex) => (prevIndex + 1) % serviceData.length);
+};
+
+// Переход к предыдущему слайду
+const prevSlide = () => {
+  setDirection('prev'); // Устанавливаем направление перемещения
+  setCurrentIndex((prevIndex) => (prevIndex - 1 + serviceData.length) % serviceData.length);
+};
+
+// Сброс индекса к текущему видимому диапазону при достижении края карусели
+useEffect(() => {
+  if (direction === 'next' && currentIndex === serviceData.length - visibleImages) {
+    setCurrentIndex(0);
+  } else if (direction === 'prev' && currentIndex === 0) {
+    setCurrentIndex(serviceData.length - visibleImages);
+  }
+}, [currentIndex, direction, visibleImages]);
+
 
   return (
-    <>
-      <section className="section_wrapper text-center">
-        <div className="service_content mt-5">
+    <section className="section_wrapper_service text-center">
+      <div className="service_content">
+        <Container>
+          <Row>
+            <Col md={12} className="text-center">
+              <h2>Our Service</h2>
+              <p>
+                Our doctors have high qualified skills and are guaranteed <br />
+                to help you recover from your disease.
+              </p>
+            </Col>
+          </Row>
+        </Container>
+        <div className="carousel-container">
           <Container>
             <Row>
-              <Col>
-                <h2>Our Service</h2>
-                <p>
-                  Our doctors have high qualified skills and are guaranteed <br /> 
-                  to help you recover from your disease.
-                </p>
+              <Col lg={12} md={12} ms={12} className="my-auto">
+              <div className="carousel" style={{ display: 'flex', width: '100%', }}>
+                  {serviceData.map((service, index) => (
+                    <div key={index} className={`service-slide ${service.showProgressBar ? 'with-progress-bar' : ''}`} style={{ flex: `0 0 ${100 / visibleImages}%`, display: index >= currentIndex && index < currentIndex + visibleImages ? 'block' : 'none' }}>
+                      <div className="slide_content_service unselectable" style={{ background: service.background }}>
+                        <div className="service_image unselectable mb-3">
+                          <img src={service.image} alt="" className="service_photo img-fluid" style={{ width: service.width, height: service.height }} />
+                        </div>
+                        <div className="service_details unselectable text-center">
+                          <h5>{service.title}</h5>
+                          <p>{service.text}</p>
+                        </div>
+                        {/* <div className="custom-bar"></div> */}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="carousel-controls">
+                  <div className="circle left" onClick={prevSlide}></div>
+                  <div className="circle right" onClick={nextSlide}></div>
+                </div>              
               </Col>
             </Row>
           </Container>
-          <div className="service_wrapper_slider">
-            <Container>
-              <Row>
-              <div>
-                <Swiper
-                  modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade, EffectCube, EffectCoverflow, EffectFlip]}
-                  effect1="fade"
-                  effect2="cube"
-                  effect="coverflow"
-                  effect4="flip"
-                  className="swiper-container"
-                  spaceBetween={10}
-                  centeredSlides={true}
-                  slidesPerView={3}
-                  slidesPerGroup={2}
-                  // direction="horizontal"
-                  // navigation={{ clickable: true, }}
-                  pagination={{ clickable: true }}
-                  breakpoints={{
-                            768: { slidesPerView: 1 },
-                            992: { slidesPerView: 2 }
-                          }}
-                  // scrollbar={{ draggable: true }}
-                  // onSlideChange={() => console.log('slide change')}
-                  // onSwiper={(swiper) => console.log(swiper)}
-                >
-                    {
-                      serviceData.map( (user) => (
-                        <Col>
-                          <SwiperSlide key={user.id} className="slide">
-                            <div className="slide_content_sevice" style={{ background: user.background }}>
-                              <div className="user_image">
-                                <img src={user.image} alt="" className="user_photo img-fluid" style={{ width: user.maxWidth, height: user.maxHeight }} />
-                              </div>
-                              <h5>{user.title}</h5>
-                              <p>{user.text}</p>
-                            </div>
-                            {(user.id === 2 || user.id === 5) && (
-                              <div className="progressbar"></div>
-                            )}
-                          </SwiperSlide>
-                        </Col>
-                      ))
-                    }
-                  </Swiper>
-                </div>
-              </Row>
-            </Container>
-          </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
-};
-
+}
+  
 export default Service;
+

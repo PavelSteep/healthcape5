@@ -6,7 +6,8 @@
   padding-bottom:60px;
   background: var(--doctors-second-background);
   background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+  animation: gradientDoctorsAnimation 10s ease infinite;
+  animation: gradientDoctorsAnimation 10s ease infinite;
 }
 
 .line {
@@ -29,7 +30,7 @@
   margin-top: 10px;
 }
 
-@keyframes gradientAnimation {
+@keyframes gradientDoctorsAnimation {
   0% {
       background-position: 0% 50%;
   }

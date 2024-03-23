@@ -1,5 +1,4 @@
 import React from "react";
-// import Svg from "react-svg";
 import { Container, Row, Col, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -11,7 +10,6 @@ import Chat from '../../assets/about/chat.png';
 import PatientReview from '../../assets/about/patient-review.png';
 import Patients from '../../assets/about/patients.png';
 import '../../styles/About.css';
-// import { FaChevronDown } from "react-icons/fa";
 
 function About() {
   return (

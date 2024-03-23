@@ -1,20 +1,13 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade, EffectCube, EffectCoverflow, EffectFlip } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import React, { useState, useEffect } from 'react';
 import '../../styles/Comments.css';
-// import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+
+import { Container, Row, Col } from "react-bootstrap";
+import StarRating from '../../components/Layouts/StartRating';
 
 import Quote from '../../assets/comments/quote.png';
 import Woman from '../../assets/comments/woman.png';
 import Man from '../../assets/comments/man.png';
 import DoctorW from '../../assets/comments/doctor_w.png';
-import StarRating from '../../components/Layouts/StartRating';
-
 
 const commentsData = [
   {
@@ -69,106 +62,89 @@ const commentsData = [
 
 
 function Comments() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [direction, setDirection] = useState(null); // Состояние для отслеживания направления перемещения карусели
 
-  // const handlePrev = () => {
-  //   const swiper = document.querySelector('.swiper-container').swiper;
-  //   swiper.slidePrev();
-  // };
+  // Обработчик изменения размера окна
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-  // const handleNext = () => {
-  //   const swiper = document.querySelector('.swiper-container').swiper;
-  //   swiper.slideNext();
-  // };
+  // Количество изображений, которые будут отображаться на экране в зависимости от ширины окна
+  const visibleImages = Math.min(commentsData.length, windowWidth >= 992 ? 3 : (windowWidth >= 768 ? 2 : 1));
+
+ // Переход к следующему слайду
+const nextSlide = () => {
+  setDirection('next'); // Устанавливаем направление перемещения
+  setCurrentIndex((prevIndex) => (prevIndex + 1) % commentsData.length);
+};
+
+// Переход к предыдущему слайду
+const prevSlide = () => {
+  setDirection('prev'); // Устанавливаем направление перемещения
+  setCurrentIndex((prevIndex) => (prevIndex - 1 + commentsData.length) % commentsData.length);
+};
+
+  // Сброс индекса к текущему видимому диапазону при достижении края карусели
+  useEffect(() => {
+    if (direction === 'next' && currentIndex === commentsData.length - visibleImages) {
+      setCurrentIndex(0);
+    } else if (direction === 'prev' && currentIndex === 0) {
+      setCurrentIndex(commentsData.length - visibleImages);
+    }
+  }, [currentIndex, direction, visibleImages]);
 
 
   return (
-    <>
-      <section className="section_wrapper_comments text-center">
-        <div className="comments_content mt-5">
-            <Container>
-              <Row>
-                <Col>
-                  <h2>Look our Clients have to say about us</h2>
-                </Col>
-              </Row>
-            </Container>
-            <div className="service_wrapper_slider">
-              <Container>
-                <Row>
-                  <div>
-                    <Swiper
-                      modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade, EffectCube, EffectCoverflow, EffectFlip]}
-                      effect1="fade"
-                      effect2="cube"
-                      effect3="coverflow"
-                      effect4="flip"
-                      className="swiper-container"
-                      spaceBetween={10}
-                      centeredSlides={true}
-                      slidesPerView={3}
-                      slidesPerGroup={2}
-                      // direction="horizontal"
-                      navigation={{ 
-                        clickable: true,
-                        prevEl: '.swiper-button-prev',
-                        nextEl: '.swiper-button-next' 
-                        }}
-                      // pagination={{ clickable: true }}
-                      breakpoints={{
-                        1024: { slidesPerView: 3 },
-                        768: { slidesPerView: 2 },
-                        320: { slidesPerView: 1 }
-                          }}
-                    >
-                         {
-                          commentsData.map( (comment) => (
-                            <Col>
-                              <SwiperSlide key={comment.id} className="slide">
-                                <div className="slide_content_comment">
-                                  <div className="quote_icon">
-                                    <img src={Quote} alt="Quote Icon" className="quote_icon_img" />
-                                  </div>
-                                  <div className="comment_image">
-                                    <img src={comment.image} alt="" className="comment_photo img-fluid" />
-                                  </div>
-                                  <div className="comment_details text-start">
-                                    <h3>{comment.name}</h3>
-                                    <StarRating rating={comment.rating} />
-                                    <h5>{comment.country}</h5>
-                                    <p>{comment.text}</p>
-                                  </div>
-                                </div>
-                              </SwiperSlide>
-                            </Col>
-                          ))
-                        }
-                        <div
-                            className="swiper-button-prev"
-                            style={{ fontSize: '10px' }}
-                        />
-                        <div
-                            className="swiper-button-next"
-                            style={{ fontSize: '10px' }}
-                        />
-                        <div className="swiper-button-prev"></div>
-                        <div className="swiper-button-next"></div>
-                    </Swiper>
-                        {/* <div className="custom-prev" onClick={handlePrev}>
-                          <BsChevronLeft />
+    <section className="section_wrapper_comments text-center">
+      <div className="comments_content">
+        <Container>
+          <Row>
+            <Col>
+              <h2>Look our Clients have to say about us</h2>
+            </Col>
+          </Row>
+        </Container>
+        <div className="carousel-container">
+          <Container>
+            <Row>
+              <Col ms={12} md={12} lg={12} className="my-auto">
+                <div className="arrow left unselectable" onClick={prevSlide} style={{ textAlign: 'center' }} >{'<'}</div>
+                  <div className="carousel" style={{ display: 'flex', width: '100%', }}>
+                    {commentsData.map((comment, index) => (
+                      <div key={index} style={{ flex: `0 0 ${100 / visibleImages}%`, display: index >= currentIndex && index < currentIndex + visibleImages ? 'block' : 'none' }}>
+                        <div className="slide_content_comment">
+                          <div className="quote_icon">
+                            <img src={Quote} alt="Quote Icon" className="quote_icon_img" />
+                          </div>
+                          <div className="comment_image unselectable">
+                            <img src={comment.image} alt={`Slide ${index}`} className="comment_photo unselectable img-fluid" />
+                          </div>
+                          <div className="comment_details unselectable text-start">
+                            <h3>{comment.name}</h3>
+                            <StarRating rating={comment.rating} />
+                            <h5>{comment.country}</h5>
+                            <p>{comment.text}</p>
+                          </div>
                         </div>
-                        <div className="custom-next" onClick={handleNext}>
-                          <BsChevronRight />
-                        </div> */}
+                      </div>
+                    ))}
                   </div>
-                </Row>
-              </Container>
-            </div>
+                <div className="arrow right unselectable" onClick={nextSlide}>{'>'}</div>
+              </Col>
+            </Row>
+          </Container>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
-
 export default Comments;
-

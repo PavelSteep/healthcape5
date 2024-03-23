@@ -6,7 +6,7 @@ function Layout({ children }) {
   return (
     <>
       <Header />
-      <div className="layout_children" style={{ minWidth: '100%', important: 'true' }}>
+      <div className="layout_children" style={{ Width: '100%', important: 'true' }}>
         { children }
       </div>
       <Footer />

@@ -66,6 +66,8 @@
     justify-content: center;
     align-items: center;
     margin-bottom:50px;
+    padding-right: 15px;
+    padding-left: 15px;
     white-space: nowrap !important;
   }
   .about_text h1, h2 {
@@ -90,6 +92,12 @@
 }
 
 @media (max-width:767px) {
+  .about_text {
+    text-align: center;
+  }
+  .about_block {
+    text-align: center;
+  }
   .about_section {
     padding-bottom: 55px !important;
   }
@@ -147,6 +155,7 @@
     font-size: 26px !important;
   }
 }
+
 @media (max-width:335px) {
   .about_section {
     padding-bottom: 180px !important;
@@ -274,6 +283,7 @@
     left: 350px !important;
   }
 }
+
 @media (max-width:500px) {
   .phone {
     top: 180px !important;
@@ -295,6 +305,7 @@
     left: 330px !important;
   }
 }
+
 @media (max-width:470px) {
   .phone {
     top: 170px !important;
@@ -321,6 +332,7 @@
     left: 310px !important;
   }
 }
+
 @media (max-width:430px) {
   .video {
     top: 170px !important;
@@ -337,6 +349,7 @@
     left: 280px !important;
   }
 }
+
 @media (max-width:410px) {
   .phone {
     top: 170px !important;
@@ -358,6 +371,7 @@
     left: 270px !important;
   }
 }
+
 @media (max-width:388px) {
   .phone {
     max-width: 80px !important;
@@ -394,6 +408,7 @@
     left: 250px !important;
   }
 }
+
 @media (max-width:335px) {
   .phone {
     top: 160px !important;
@@ -423,54 +438,62 @@
   }
 }
 
-/* отдельный блок адаптации для всех */
-/* @media (max-width: 360px) {
-  .womanDoctor {
+@media (max-width:290px) {
+  .video {
+    top: 160px !important;
+    left: 210px !important;
+  }
+  
+  .chat {
+    top: 240px !important;
+    left: 0px !important;
+  }
+  
+  .patientReview {
+    top: 310px !important;
+    left: 20px !important;
+  }
+  
+  .patients {
     max-width: 120px !important;
-    max-height: 120px !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 10 !important;
-  } */
+    height: 70px !important;
+    top: 250px !important;
+    left: 180px !important;
+  }
+}
 
-  /* .ellipse {
-    width: 90px !important;
-    height: 90px !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 2 !important;
-  } */
-
-  /* .phone, .video, .chat, .patientReview, .patients {
-    max-width: 40px !important;
-    max-height: 40px !important;
-    position: absolute !important;
-  } */
-
-  /* .phone {
-    top: 30% !important;
-    left: 10% !important;
-  } */
-
-  /* .video {
-    top: 70% !important;
-    left: 30% !important;
-  } */
-
-  /* .chat {
-    top: 50% !important;
-    left: 70% !important;
-  } */
-
-  /* .patientReview {
-    top: 30% !important;
-    left: 70% !important;
-  } */
-
-  /* .patients {
-    top: 70% !important;
-    left: 10% !important;
-  } */
-/* } */
+@media (max-width:265px) {
+  .phone {
+    width:50px !important;
+    height: 50px !important;
+    top: 160px !important;
+    left: 30px !important;
+  }
+  .video {
+    width:50px !important;
+    height: 50px !important;
+    top: 160px !important;
+    left: 170px !important;
+  }
+  
+  .chat {
+    width:50px !important;
+    height: 50px !important;
+    top: 230px !important;
+    left: -10px !important;
+  }
+  
+  .patientReview {
+    max-width: 190px !important;
+    height: 70px !important;
+    top: 290px !important;
+    left: -10px !important;
+  }
+  
+  .patients {
+    max-width: 120px !important;
+    height: 70px !important;
+    top: 225px !important;
+    left: 160px !important;
+  }
+}

@@ -14,12 +14,12 @@ function Mobile() {
       <section className="section_mobile">
         <Container>
           <Row>
-            <Col lg={6}>
-              <div className="d-flex justify-content-center align-atems-center">
+            <Col lg={6} md={12} ms={12} className="my-auto">
+              <div className="d-flex justify-content-center align-items-center">
                 <img src={mobileImg} alt="e-shop" className="img-fluid" />
               </div>
             </Col>
-            <Col lg={6} className="mb-5 mobile_content">
+            <Col lg={6} md={12} ms={12} className="mb-5 my-auto mobile_content">
               <h2>Mobile apps are available
                   <br />
                   Get HealthCare for free!
@@ -33,10 +33,10 @@ function Mobile() {
               </p>
               <div className="shop-elems d-flex">
                 <Link to="/">
-                  <img src={storeApple} alt="apple" className="store" />
+                  <img src={storeApple} alt="apple" className="store img-fluid" />
                 </Link>
                 <Link to="/">
-                  <img src={storeGoogle} alt="apple" className="store" />
+                  <img src={storeGoogle} alt="apple" className="store img-fluid" />
                 </Link>
               </div>
             </Col>

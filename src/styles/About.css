@@ -5,11 +5,10 @@
   overflow: hidden;
   background: var(--about-background);
   background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
-  /* transition: background-color 0.3s ease; */
+  animation: gradientAboutAnimation 10s ease infinite;
 }
 
-@keyframes gradientAnimation {
+@keyframes gradientAboutAnimation {
   0% {
       background-position: 0% 50%;
   }
@@ -33,6 +32,7 @@
   color: #3E3E3E;
   line-height:1.46;
   white-space: nowrap;
+  overflow-wrap: break-word !important;
 }
 
 .about_text h2 {

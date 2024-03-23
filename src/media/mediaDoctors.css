@@ -51,11 +51,11 @@
   }
 }
 
-@media (max-width:557px) {
+@media (max-width:570px) {
   .section_doctors .line {
-    margin-top: -176px !important;
+    display: none !important;
   }
-  /* .section_doctors .circle {
-    margin-left: 300px !important;
-  } */
+  .section_doctors .circle {
+    display: none !important;
+  }
 }

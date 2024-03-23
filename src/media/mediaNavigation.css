@@ -43,4 +43,30 @@
     white-space: normal !important;
   } 
 }
+
+@media (max-width:222px) {
+  .logo span {
+    font-size:26px !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  } 
+}
+
+@media (max-width:160px) {
+  .logo span {
+    font-size:22px !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    margin-left: 0px !important;
+  } 
+}
+
+@media (max-width:144px) {
+  .logo span {
+    font-size:16px !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    margin-left: 0px !important;
+  } 
+}
  

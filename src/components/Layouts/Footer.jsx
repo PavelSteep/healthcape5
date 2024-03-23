@@ -8,7 +8,7 @@ import Twitter from '../../assets/footer/Twitter.png';
 import CombinedShape from '../../assets/footer/Combined Shape.png';
 
 
-function Footer() {
+const Footer = () => {
   return (
     <>
       <footer>
@@ -82,13 +82,13 @@ function Footer() {
                   <br />
                    exclusive promos.
                 </p>
-                <Form>
-                  <Form.Group className="mb-1" controlId="formBasicEmail">
+                <Form className="footer_form">
+                  <Form.Group className="mb-1 footer_email" controlId="formBasicEmail">
                     <Form.Control type="email" placeholder="Enter your email" />
                   </Form.Group>
                   <Button
                   variant="primary"
-                  className="article_bottom mt-4"
+                  className="footer_bottom mt-4"
                   type="submit"
                   style={{ backgroundColor: "#40A3F8", 
                     color: "#FFFFFF", 

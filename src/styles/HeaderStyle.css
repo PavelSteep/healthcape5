@@ -5,12 +5,11 @@ nav.navbar {
   width:100%;
   background-image:var(--navigator);
   background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
-  /* transition: background-color 0.3s ease; */
+  animation: gradientNavbarAnimation 10s ease infinite;
   z-index: 1111;
 }
 
-@keyframes gradientAnimation {
+@keyframes gradientNavbarAnimation {
   0% {
       background-position: 0% 50%;
   }
@@ -26,18 +25,14 @@ nav.navbar {
   transition: background-color 0.3s ease;
 }
 
-/* nav.navbar.sticky{
-  position:fixed;
-  left:0;
-  top:0;
-  background-color:var(--light-white);
-} */
-
 nav .navbar-brand a h1.logo {
   font-family: Rubik, "sans-serif";
   font-size: 2rem;
   line-height: 1.5;
   color: var(--azure);
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
 }
 
 nav .nav-link{
@@ -55,16 +50,6 @@ nav .nav-link:hover{
   color:var(--azure);
 }
 
-/* nav .nav-link Button .getStarted:hover {
-  background-color: transparent !important;
-} */
-
-/* .button {
-  background-color: #40A3F8;
-  color: #FFFFFF;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease-in-out;
-} */
 @keyframes myAnimation {
   from {
     background-color: #40A3F8;
@@ -75,27 +60,3 @@ nav .nav-link:hover{
     color: #DEECF5;
   }
 }
-
-/* Button:hover { */
-  /* background-color: #5B4AF1 !important; */
-  /* animation: myAnimation 2s ease-in-out infinite; */
-/* } */
-
-/* nav .navbar-collapse{
-  animation:sticky .25s;
-}
-
-@keyframes sticky{
-  0%{
-    opacity:0;
-    transform:translateY(-100%);
-  }
-
-  100%{
-    opacity:1;
-    transform:none;
-  } */
-  
-/* } */
-
-
